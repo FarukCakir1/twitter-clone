@@ -1,0 +1,11 @@
+@import "layouts/layouts";
+@import "components/components";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: Arial;
+}
+
