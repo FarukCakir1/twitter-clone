@@ -1,0 +1,6 @@
+.img-wrapper {
+  @apply w-10 h-10 rounded-full overflow-hidden;
+  img{
+    @apply w-full h-full object-cover
+  }
+}

@@ -1,0 +1,61 @@
+.discover-box {
+  @apply py-3 rounded-xl bg-[#202327] flex flex-col gap-3;
+  h1 {
+    @apply text-white text-[18px] font-semibold px-4;
+  }
+  .discover-box-body {
+    @apply text-white;
+    .get-approved-message {
+      @apply mt-[-10px] px-4;
+    }
+    .today-agendas {
+        @apply flex flex-col w-full;
+        .agenda-wrapper {
+          .agenda {
+            @apply flex items-center justify-between px-4 py-3;
+            &:hover {
+              @apply bg-white bg-opacity-10;
+            }
+            .agenda-infos {
+              @apply flex flex-col;
+              .agenda-title {
+                @apply text-[16px] font-semibold;
+              }
+              .category-or-location, .tweet-count {
+                @apply text-[#71767B] text-[13px];
+              }
+            }
+          }
+        }
+      }
+    .follow-suggests {
+      @apply flex flex-col;
+      .suggest-wrapper {
+        @apply w-full h-full;
+        .suggestion {
+          @apply w-full px-4 py-3 flex justify-between items-center;
+          .suggestion-infos {
+            @apply flex gap-3 items-center;
+            .user-info {
+              @apply flex flex-col;
+              .name {
+                @apply text-[15px] font-semibold;
+              }
+              .nickname {
+                @apply text-[13px] text-[#71767B];
+              }
+            }
+          }
+          .btn {
+            @apply w-1/3 text-[14px] px-1;
+          }
+        }
+      }
+    }
+  }
+  .discover-box-footer {
+    .btn {
+      @apply ml-4
+    }
+  }
+}

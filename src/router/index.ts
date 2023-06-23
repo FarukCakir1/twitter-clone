@@ -8,13 +8,13 @@ const router = createRouter({
       path: '/',
       name: 'main',
       component: () => import('../layouts/MainLayout.vue'),
-      // children: [
-      //   {
-      //     path: '',
-      //     name: 'home',
-      //     component: ()
-      //   }
-      // ]
+      children: [
+        {
+          path: '',
+          name: 'home',
+          component: () => import('../components/views/feed/FeedWrapper.vue')
+        }
+      ]
     }
   ]
 })

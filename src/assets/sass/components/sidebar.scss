@@ -1,12 +1,33 @@
 .sidebar-container {
-  @apply h-screen w-[250px] flex flex-col gap-[20px] py-[15px];
+  @apply h-screen w-[250px] flex flex-col gap-[20px] py-[15px] shrink-0 overflow-auto;
   .routes {
-    @apply h-full w-full;
+    @apply h-auto w-full;
     .routes-list {
-      @apply flex flex-col gap-[24px];
+      @apply flex flex-col gap-[5px];
       .single-route {
-        @apply flex items-center gap-[20px] text-white text-[20px]
+        @apply flex w-max py-3 pr-5 pl-3 items-center gap-[20px] text-white text-[20px] rounded-full;
+        &:hover {
+          @apply bg-white bg-opacity-10
+        }
       }
+    }
+  }
+  .profile-detail {
+    @apply flex items-center w-full mt-auto px-6 py-3 w-full cursor-pointer rounded-full;
+    &:hover {
+      @apply bg-white bg-opacity-10
+    }
+    .account-infos {
+      @apply text-white flex flex-col gap-[3px] ml-3 text-[15px];
+      .name {
+        @apply text-white font-semibold
+      }
+      .username {
+        @apply text-[#71767B]
+      }
+    }
+    .svg-wrapper {
+      @apply ml-auto;
     }
   }
 }

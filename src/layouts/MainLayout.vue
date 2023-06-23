@@ -16,6 +16,7 @@ import SidebarEl from "@/components/shared/SidebarEl.vue";
 import type {MenuItemsInterface} from "@/stores/interfaces/MenuItemsInterface";
 // Vue helpers
 import {ref} from "vue";
+import DiscoverSide from "@/components/shared/DiscoverSide.vue";
 
 
 // variables
@@ -74,9 +75,11 @@ const menuItems = ref<Array<MenuItemsInterface>>([
 </script>
 
 <template>
-    <div class="w-screen h-screen bg-black">
+    <div class="w-screen h-screen bg-black overflow-hidden">
         <div class="main-layout mx-auto px-10">
             <sidebar-el :menu-items="menuItems" />
+            <router-view></router-view>
+            <discover-side />
         </div>
     </div>
 </template>

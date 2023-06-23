@@ -1,0 +1,6 @@
+.discover-side-wrapper {
+  @apply h-screen overflow-auto flex flex-col w-[350px] shrink-0 ml-7 gap-7;
+  .search-wrapper {
+    @apply sticky top-0
+  }
+}

@@ -1,0 +1,21 @@
+.feed-header {
+  @apply sticky top-0 backdrop-blur-xl bg-black/60 z-10 text-white border-l border-r border-b border-b-white border-l-white border-r-white px-4 border-opacity-20;
+  h2 {
+    @apply text-[20px] font-semibold my-4
+  }
+  .content-options {
+    @apply flex py-6 justify-center;
+    .option {
+      @apply w-1/2 flex justify-center;
+      &.active {
+        span {
+          @apply relative;
+          &:before {
+            content: '';
+            @apply w-full absolute h-[2px] bg-tw-blue bottom-[-24px]
+          }
+        }
+      }
+    }
+  }
+}

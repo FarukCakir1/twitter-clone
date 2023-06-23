@@ -1,0 +1,37 @@
+.share-tweet-form {
+  @apply w-full h-auto flex px-4 border border-t-0 border-white border-opacity-20;
+  .img-wrapper {
+    @apply w-10 h-10 rounded-full overflow-hidden mt-3;
+    img{
+      @apply w-full h-full object-cover
+    }
+  }
+  .form-side {
+    @apply pt-4 ml-3 w-full;
+    .target {
+      @apply px-3 max-w-fit text-tw-blue text-[14px] py-[1px] rounded-full border border-white border-opacity-40 mb-3 flex gap-2 relative;
+      .target-drop {
+        box-shadow: white 0px 2px 8px 0px;
+        @apply w-[300px] z-[5] h-auto bg-black absolute opacity-0 top-10 left-0 duration-100 flex flex-col gap-5 px-4 py-3 rounded-xl;
+        &.open {
+          @apply opacity-100;
+        }
+      }
+    }
+    textarea {
+      @apply w-full text-[20px] bg-transparent outline-0 border-0 text-white placeholder:opacity-60 resize-none py-3 placeholder:text-[20px];
+    }
+    .responsiblity-selection {
+      @apply flex gap-2 pb-3 border-b border-b-white border-opacity-20;
+      span {
+        @apply text-tw-blue
+      }
+    }
+    .actions {
+      @apply flex justify-between mt-4 mb-2;
+      .action-buttons {
+        @apply flex gap-4;
+      }
+    }
+  }
+}

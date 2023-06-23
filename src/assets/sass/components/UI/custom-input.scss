@@ -1,0 +1,12 @@
+.input-wrapper {
+  @apply flex items-center relative;
+  .icon-wrapper {
+    @apply absolute left-4
+  }
+  .custom-input {
+    @apply h-full w-full outline-0 border-0 text-white placeholder:opacity-60 pl-11 p-4 bg-[#202327] gap-4 rounded-full;
+    &:focus {
+      @apply bg-transparent border border-tw-blue;
+    }
+  }
+}

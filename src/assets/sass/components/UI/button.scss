@@ -1,0 +1,6 @@
+.btn {
+  @apply bg-tw-blue flex items-center px-7 rounded-full justify-center shrink-0 h-[50px] text-white text-[17px] font-semibold;
+  &.white {
+    @apply bg-white text-black
+  }
+}

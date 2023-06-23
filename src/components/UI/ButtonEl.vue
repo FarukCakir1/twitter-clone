@@ -1,13 +1,15 @@
 <script setup lang="ts">
+
   const props = defineProps<{
       text: string,
-      type: ButtonTypeEnum,
+      type: string,
+      height: number
   }>()
 </script>
 
 <template>
-    <button class="btn">
-        Tweetle
+    <button :style="{height: `${height}px`}" class="btn" :class="type">
+        {{ text }}
     </button>
 </template>
 
