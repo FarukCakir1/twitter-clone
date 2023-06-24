@@ -1,7 +1,21 @@
 .tweet-wrapper {
-  @apply w-full flex px-4 py-3 border border-white border-opacity-20 border-b-0;
+  @apply w-full flex px-4 py-3 border border-white border-opacity-20;
+  .connector {
+    @apply hidden;
+  }
+  &.for-comment {
+    @apply border-r-0 border-l-0;
+    .connector {
+      @apply block;
+      height: calc(100% - 18px);
+      @apply w-[2px] absolute content-[''] bg-white opacity-20 left-[18px] top-[44px]
+    }
+    .tweet {
+      @apply w-full;
+    }
+  }
   .img-wrapper {
-    @apply shrink-0
+    @apply shrink-0 relative;
   }
   .tweet {
     @apply text-white ml-3;

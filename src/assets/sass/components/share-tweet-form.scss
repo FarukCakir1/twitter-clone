@@ -1,5 +1,23 @@
 .share-tweet-form {
   @apply w-full h-auto flex px-4 border border-t-0 border-white border-opacity-20;
+  &.for-comment {
+    @apply border-0 px-0 items-center;
+    .img-wrapper {
+      @apply mt-0;
+    }
+    .form-side {
+      @apply flex items-center pt-2 pb-3;
+      textarea {
+        @apply py-3
+      }
+      .actions {
+        @apply border-0 py-0 my-0 justify-end items-center #{!important};
+        .action-buttons {
+          @apply hidden #{!important};
+        }
+      }
+    }
+  }
   .img-wrapper {
     @apply w-10 h-10 rounded-full overflow-hidden mt-3;
     img{

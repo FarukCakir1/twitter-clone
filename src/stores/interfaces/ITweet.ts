@@ -8,5 +8,5 @@ export interface ITweet {
     fav: number,
     retweet: number,
     comment: number,
-    comments: ITweet
+    comments?: ITweet|null
 }

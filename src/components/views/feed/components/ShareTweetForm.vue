@@ -17,6 +17,9 @@ const textarea = ref<HTMLTextAreaElement>()
 const visible = ref<boolean>(false)
 const targetDrop = ref<HTMLDivElement>()
 const isDropOpen = ref<boolean>(false)
+const props = defineProps<{
+    isInComment?: boolean
+}>()
 const adjustTextAreaheight = () => {
     textarea.value.style.height = 'auto'
     textarea.value.style.height = `${textarea.value?.scrollHeight}px`
@@ -28,7 +31,7 @@ detectOutsideClick(targetDrop, () => {
 </script>
 
 <template>
-    <div class="share-tweet-form">
+    <div class="share-tweet-form" :class="isInComment ? 'for-comment' : ''">
         <div class="img-wrapper">
             <img src="/src/assets/image/avatar.png" alt="">
         </div>
@@ -90,7 +93,7 @@ detectOutsideClick(targetDrop, () => {
                     <CalendarIcon :size="20" color="#1D9BF0"/>
                     <LocationMarkIcon :size="20" color="#1D9BF0"/>
                 </div>
-                <ButtonEl text="Tweetle" type="blue" :height="36" />
+                <ButtonEl :text="!isInComment ? 'yanıta' : 'Yanıtla'" type="blue" :height="36" />
             </div>
         </div>
     </div>
