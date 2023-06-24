@@ -7,36 +7,97 @@ import ReTweetIcon from "@/components/icons/ReTweetIcon.vue";
 import HeartIcon from "@/components/icons/HeartIcon.vue";
 import StatisticsIcon from "@/components/icons/StatisticsIcon.vue";
 import SendIcon from "@/components/icons/SendIcon.vue";
+import {ref} from "vue";
+import SadFace from "@/components/icons/SadFace.vue";
+import FollowIcon from "@/components/icons/FollowIcon.vue";
+import AddListIcon from "@/components/icons/AddListIcon.vue";
+import MuteIcon from "@/components/icons/MuteIcon.vue";
+import BlockItem from "@/components/icons/BlockItem.vue";
+import TagItem from "@/components/icons/TagItem.vue";
+import FlagItem from "@/components/icons/FlagItem.vue";
+import {detectOutsideClick} from "@/helpers/detectOutsideClick";
+import type {ITweet} from "@/stores/interfaces/ITweet";
+
+const transactionArr = ref<Array<{icon:any, title:string}>>([
+    {
+      icon: SadFace,
+      title: 'Bu tweet ilgimi çekmiyor'
+    },
+    {
+        icon: FollowIcon,
+        title: '@vuejs adlı kullanıcıyı takip et'
+    },
+    {
+        icon: AddListIcon,
+        title: '@js adlı kişiyi listelere ekle / listelerden kaldır'
+    },
+    {
+        icon: MuteIcon,
+        title: '@angularjs adlı kullanıcıyı sustur'
+    },
+    {
+        icon: BlockItem,
+        title: '@jquery adlı kullanıcıyı engelle'
+    },
+    {
+        icon: TagItem,
+        title: 'Tweeti katıştır'
+    },
+    {
+        icon: FlagItem,
+        title: 'Tweeti bildir'
+    }
+])
+const isDropOpen = ref<boolean>(false)
+const dropdown = ref<HTMLDivElement>();
+
+detectOutsideClick(dropdown, () => {
+    isDropOpen.value = false
+})
+
+const props = defineProps<ITweet>()
 </script>
 
 <template>
-    <div class="tweet-wrapper">
-        <ProfilePhoto :size="40" source="/src/assets/image/avatar.png" />
+    <router-link :to="`/tweet/${id}`" class="tweet-wrapper">
+        <ProfilePhoto :size="40" :source="user.avatar" />
         <div class="tweet">
             <div class="tweet-owner-info">
-                <span class="name">StartupCentrum</span>
-                <span class="nickname">@startupcentrum</span>
+                <span class="name">{{user.full_name}}</span>
+                <span class="nickname">{{user.user_name}}</span>
                 <span class="time">2s</span>
-                <div class="svg-wrapper">
-                    <three-dot :size="18" color="#71767B"/>
+                <div class="relative ml-auto transactions-wrapper" ref="dropdown">
+                    <div class="svg-wrapper" @click="isDropOpen=true">
+                        <three-dot :size="18" color="#71767B"/>
+                    </div>
+                    <div class="tweet-transactions"  :class="isDropOpen ? 'open': ''">
+                      <ul class="transactions">
+                          <li v-for="(item, index) in transactionArr" class="transaction">
+                              <div class="svg-wrapper">
+                                  <component :is="item.icon" :size="17"></component>
+                              </div>
+                              <span class="text-white font-semibold">{{item.title}}</span>
+                          </li>
+                      </ul>
+                    </div>
                 </div>
             </div>
             <slot name="tweet"></slot>
-            <div v-if="true" class="tweet-image">
+            <div v-if="media" class="tweet-image">
                 <img src="/src/assets/image/legolas.JPG" alt="">
             </div>
             <div class="actions">
               <div class="comment">
                   <CommentIcon :size="19" color="#71767B"/>
-                  <span class="text-[#71767B] text-[13px]">17</span>
+                  <span class="text-[#71767B] text-[13px]">{{ comment }}</span>
               </div>
                 <div class="retweet">
                     <ReTweetIcon :size="19" color="#71767B"/>
-                    <span class="text-[#71767B] text-[13px]">17</span>
+                    <span class="text-[#71767B] text-[13px]">{{retweet}}</span>
                 </div>
                 <div class="like">
                     <HeartIcon :size="19" color="#71767B"/>
-                    <span class="text-[#71767B] text-[13px]">17</span>
+                    <span class="text-[#71767B] text-[13px]">{{fav}}</span>
                 </div>
                 <div class="stats">
                     <StatisticsIcon :size="19" color="#71767B"/>
@@ -47,7 +108,7 @@ import SendIcon from "@/components/icons/SendIcon.vue";
                 </div>
             </div>
         </div>
-    </div>
+    </router-link>
 </template>
 
 <style scoped>

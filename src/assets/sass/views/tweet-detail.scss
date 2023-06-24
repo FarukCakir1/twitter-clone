@@ -1,0 +1,63 @@
+.tweet-detail-wrapper {
+  @apply w-full flex flex-col px-4 py-3 border border-white border-opacity-20 border-b-0;
+  .turn-back-wrapper {
+    @apply flex gap-8 text-white items-center py-3;
+    h2 {
+      @apply text-[20px] font-semibold
+    }
+  }
+  .main-tweet {
+    @apply text-white pr-3 py-3 flex gap-3 w-full;
+    .img-wrapper {
+      @apply shrink-0;
+    }
+    .tweet-image {
+      @apply w-full max-h-[400px] overflow-hidden rounded-xl mt-3;
+      img {
+        @apply max-w-full max-h-full object-cover
+      }
+    }
+    .tweet-owner-info {
+      @apply flex gap-1 items-center w-full;
+      .name {
+        @apply text-[15px] font-medium;
+      }
+      .nickname {
+        @apply text-[15px] text-[#71767B] relative pr-4 flex items-center;
+      }
+      .svg-wrapper {
+        @apply ml-auto;
+      }
+      .transactions-wrapper {
+        .tweet-transactions {
+          box-shadow: white 0px 2px 8px 0px;
+          @apply absolute w-[300px] z-[7] rounded-md bg-black right-0 h-auto top-10 opacity-0 pointer-events-none duration-100;
+          &.open {
+            @apply pointer-events-auto opacity-100;
+          }
+          .transactions {
+            @apply flex flex-col items-start;
+            .transaction {
+              @apply flex px-4 items-center gap-3 py-3;
+            }
+          }
+        }
+      }
+    }
+    .footer {
+      @apply text-[15px] text-[#71767B] flex py-4 border border-white border-opacity-20 border-l-0 border-r-0 border-t-0;
+      span {
+        @apply mr-3 relative flex items-center;
+        &:not(:last-child) {
+        &:before {
+          content: "";
+          @apply w-[2px] h-[2px] bg-[#71767B] rounded-full absolute right-[-7px];
+        }
+        }
+      }
+      .display-count {
+        @apply text-white font-semibold
+      }
+    }
+  }
+}

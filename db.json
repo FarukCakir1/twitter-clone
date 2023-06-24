@@ -1,0 +1,334 @@
+{
+  "tweets": [
+    {
+      "id": 1,
+      "user": {
+        "full_name": "Faruk Çakır",
+        "user_name": "@ffDev",
+        "avatar": "/src/assets/image/avatar.png"
+      },
+      "tweet": "He was dressed like a bear.",
+      "tweet_media": null,
+      "fav": 65,
+      "retweet": 123,
+      "comment": 3,
+      "comment_tweets": [
+        {
+          "id": 2,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "She was very tired as a general rule.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 3,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "Odds are that he is cheating on her.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 4,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "She was curling her hair when she accidentally burned her forehead.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        }
+      ],
+      "created_at": ""
+    },
+    {
+      "id": 5,
+      "user": {
+        "full_name": "Faruk Çakır",
+        "user_name": "@ffDev",
+        "avatar": "/src/assets/image/avatar.png"
+      },
+      "tweet": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "tweet_media": "/src/assets/image/legolas.JPG",
+      "fav": 65,
+      "retweet": 123,
+      "comment": 3,
+      "comment_tweets": [
+        {
+          "id": 6,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "What we had was a total lie.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 7,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "The coach smiled at the player who tossed the frisbee.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 8,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "I had just gotten the face where I wanted it when my classmate bumped into me and the clay fell over.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        }
+      ],
+      "created_at":  ""
+    },
+    {
+      "id": 9,
+      "user": {
+        "full_name": "Faruk Çakır",
+        "user_name": "@ffDev",
+        "avatar": "/src/assets/image/avatar.png"
+      },
+      "tweet": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "tweet_media": null,
+      "fav": 65,
+      "retweet": 123,
+      "comment": 3,
+      "comment_tweets": [
+        {
+          "id": 10,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "What we had was a total lie.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 11,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "The coach smiled at the player who tossed the frisbee.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 12,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "I had just gotten the face where I wanted it when my classmate bumped into me and the clay fell over.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        }
+      ],
+      "created_at":  ""
+    },
+    {
+      "id": 13,
+      "user": {
+        "full_name": "Faruk Çakır",
+        "user_name": "@ffDev",
+        "avatar": "/src/assets/image/avatar.png"
+      },
+      "tweet": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "tweet_media": null,
+      "fav": 65,
+      "retweet": 123,
+      "comment": 3,
+      "comment_tweets": [
+        {
+          "id": 14,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "What we had was a total lie.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 15,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "The coach smiled at the player who tossed the frisbee.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 16,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "I had just gotten the face where I wanted it when my classmate bumped into me and the clay fell over.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        }
+      ],
+      "created_at":  ""
+    },
+    {
+      "id": 17,
+      "user": {
+        "full_name": "Faruk Çakır",
+        "user_name": "@ffDev",
+        "avatar": "/src/assets/image/avatar.png"
+      },
+      "tweet": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "tweet_media": null,
+      "fav": 65,
+      "retweet": 123,
+      "comment": 3,
+      "comment_tweets": [
+        {
+          "id": 18,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "What we had was a total lie.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 19,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "The coach smiled at the player who tossed the frisbee.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 20,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "I had just gotten the face where I wanted it when my classmate bumped into me and the clay fell over.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        }
+      ],
+      "created_at":  ""
+    },
+    {
+      "id": 21,
+      "user": {
+        "full_name": "Faruk Çakır",
+        "user_name": "@ffDev",
+        "avatar": "/src/assets/image/avatar.png"
+      },
+      "tweet": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+      "tweet_media": "/src/assets/image/legolas.JPG",
+      "fav": 65,
+      "retweet": 123,
+      "comment": 3,
+      "comment_tweets": [
+        {
+          "id": 22,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "What we had was a total lie.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 15,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "The coach smiled at the player who tossed the frisbee.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        },
+        {
+          "id": 23,
+          "user": {
+            "full_name": "Faruk Çakır",
+            "user_name": "@ffDev",
+            "avatar": "/src/assets/image/avatar.png"
+          },
+          "tweet": "I had just gotten the face where I wanted it when my classmate bumped into me and the clay fell over.",
+          "tweet_media": null,
+          "fav": 65,
+          "retweet": 123,
+          "comment": 3
+        }
+      ],
+      "created_at":  ""
+    }
+  ]
+}

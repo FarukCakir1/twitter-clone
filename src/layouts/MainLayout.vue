@@ -78,7 +78,9 @@ const menuItems = ref<Array<MenuItemsInterface>>([
     <div class="w-screen h-screen bg-black overflow-hidden">
         <div class="main-layout mx-auto px-10">
             <sidebar-el :menu-items="menuItems" />
-            <router-view></router-view>
+            <div class="w-full flex">
+                <router-view></router-view>
+            </div>
             <discover-side />
         </div>
     </div>

@@ -2,8 +2,22 @@
 import FeedHeader from "@/components/views/feed/components/FeedHeader.vue";
 import ShareTweetForm from "@/components/views/feed/components/ShareTweetForm.vue";
 import Tweet from "@/components/UI/Tweet.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {apiService} from '../../../utils/appAxios.js'
+import {TweetModel} from "@/stores/models/TweetModel";
+import {ITweetFetch} from "@/stores/interfaces/ITweetFetch";
+import {useTweetStore} from "@/stores/tweets";
+
 const tweetsWrapper = ref<HTMLDivElement>()
+const loading = ref<boolean>(true)
+const store = useTweetStore()
+const tweets = ref<Array<TweetModel>>([])
+onMounted(async () => {
+    loading.value = true
+    await store.fetchTweets()
+    tweets.value = store.getTweets
+    loading.value = false
+})
 const scrollDiscoverBox = () => {
     const discoverSide = document.querySelector('.discover-side-wrapper')
     discoverSide.scrollTop = tweetsWrapper.value.scrollTop
@@ -15,9 +29,18 @@ const scrollDiscoverBox = () => {
         <FeedHeader :options="['Sana Özel', 'Takip Ettiklerin']"/>
         <share-tweet-form />
         <div class="tweets-wrapper" >
-            <Tweet v-for="i in 5">
+            <Tweet
+                v-for="tweet in tweets"
+                :user="tweet.user"
+                :id="tweet.id"
+                :media="tweet.media"
+                :fav="tweet.fav"
+                :retweet="tweet.retweet"
+                :comment="tweet.comment"
+                :comments="tweet.comments"
+            >
                 <template v-slot:tweet>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda dolore laudantium numquam rem. Adipisci consequatur culpa distinctio eum exercitationem iste laborum repudiandae sapiente! Ad debitis, distinctio id pariatur saepe veniam.
+                    {{tweet.tweet}}
                 </template>
             </Tweet>
         </div>

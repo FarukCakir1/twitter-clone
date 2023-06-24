@@ -13,6 +13,11 @@ const router = createRouter({
           path: '',
           name: 'home',
           component: () => import('../components/views/feed/FeedWrapper.vue')
+        },
+        {
+          path: '/tweet/:id',
+          name: 'tweet-detail',
+          component: () => import('../components/views/tweetDetail/TweetDetail.vue')
         }
       ]
     }

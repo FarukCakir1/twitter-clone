@@ -20,6 +20,21 @@
       .svg-wrapper {
         @apply ml-auto;
       }
+      .transactions-wrapper {
+        .tweet-transactions {
+          box-shadow: white 0px 2px 8px 0px;
+          @apply absolute w-[300px] z-[7] rounded-md bg-black right-0 h-auto top-10 opacity-0 pointer-events-none duration-100;
+          &.open {
+            @apply pointer-events-auto opacity-100;
+          }
+          .transactions {
+            @apply flex flex-col items-start;
+            .transaction {
+              @apply flex px-4 items-center gap-3 py-3;
+            }
+          }
+        }
+      }
     }
     .tweet-image {
       @apply w-full max-h-[400px] overflow-hidden rounded-xl mt-3;
