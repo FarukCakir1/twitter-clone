@@ -11,7 +11,8 @@ export class TweetModel implements ITweet {
     fav:number;
     retweet: number;
     comment:number;
-    comments: ITweet
+    comments?: ITweet|null;
+    created_at: any
 
 
     constructor(_interface: ITweet) {
@@ -22,7 +23,8 @@ export class TweetModel implements ITweet {
         this.fav = _interface.fav;
         this.retweet = _interface.retweet;
         this.comment = _interface.comment;
-        this.comments = _interface.comments
+        this.comments = _interface.comments;
+        this.created_at = _interface.created_at
     }
 
     static fromFetch(_interface: ITweetFetch) {
@@ -34,7 +36,8 @@ export class TweetModel implements ITweet {
             fav: _interface.fav,
             retweet: _interface.retweet,
             comment: _interface.comment,
-            comments: _interface.comment_tweets
+            comments: _interface.comment_tweets,
+            created_at: _interface.created_at
         })
     }
 }

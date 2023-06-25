@@ -8,5 +8,6 @@ export interface ITweet {
     fav: number,
     retweet: number,
     comment: number,
-    comments?: ITweet|null
+    comments?: ITweet|null,
+    created_at: any
 }

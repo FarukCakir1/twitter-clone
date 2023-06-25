@@ -2,11 +2,13 @@
 import FeedHeader from "@/components/views/feed/components/FeedHeader.vue";
 import ShareTweetForm from "@/components/views/feed/components/ShareTweetForm.vue";
 import Tweet from "@/components/UI/Tweet.vue";
-import {onMounted, ref} from "vue";
+import {ref, onMounted, reactive, watch} from "vue";
 import {apiService} from '../../../utils/appAxios.js'
 import {TweetModel} from "@/stores/models/TweetModel";
 import {ITweetFetch} from "@/stores/interfaces/ITweetFetch";
 import {useTweetStore} from "@/stores/tweets";
+import _ from 'lodash'
+
 
 const tweetsWrapper = ref<HTMLDivElement>()
 const loading = ref<boolean>(true)
@@ -18,6 +20,22 @@ onMounted(async () => {
     tweets.value = store.getTweets
     loading.value = false
 })
+
+const shareTweet = async (e) => {
+    const newTweet = {
+        id: Math.random() * 100000,
+        user: {full_name: 'startupcentrum', user_name: '@startupcentrum', avatar: '/src/assets/image/avatar.png'},
+        tweet: e,
+        media: null,
+        fav: 0,
+        retweet: 0,
+        comment: 0,
+        comments: null,
+        created_at: new Date()
+    }
+    tweets.value = [new TweetModel(newTweet), ...tweets.value]
+    await store.postTweet(newTweet)
+}
 const scrollDiscoverBox = () => {
     const discoverSide = document.querySelector('.discover-side-wrapper')
     discoverSide.scrollTop = tweetsWrapper.value.scrollTop
@@ -27,7 +45,7 @@ const scrollDiscoverBox = () => {
 <template>
     <div class="feed-wrapper" ref="tweetsWrapper" @scroll="scrollDiscoverBox">
         <FeedHeader :options="['Sana Özel', 'Takip Ettiklerin']"/>
-        <share-tweet-form />
+        <share-tweet-form @shareTweet="shareTweet"/>
         <div class="tweets-wrapper" >
             <Tweet
                 v-for="tweet in tweets"
@@ -38,6 +56,7 @@ const scrollDiscoverBox = () => {
                 :retweet="tweet.retweet"
                 :comment="tweet.comment"
                 :comments="tweet.comments"
+                :created_at="tweet.created_at"
             >
                 <template v-slot:tweet>
                     {{tweet.tweet}}

@@ -19,6 +19,9 @@ import Tweet from "@/components/UI/Tweet.vue";
 import {useTweetStore} from "@/stores/tweets";
 import type {ITweet} from "@/stores/interfaces/ITweet";
 import {RouteParamValue, useRoute} from "vue-router";
+import {format} from "date-fns";
+import {tr} from "date-fns/locale";
+
 
 const isDropOpen = ref<boolean>()
 const route = useRoute()
@@ -69,6 +72,12 @@ onMounted(async () => {
     }
     console.log(mainTweet.value)
 })
+
+const getDayPart = (start) => {
+    const date = new Date(start)
+    const hour = parseInt(format(date, 'kk'))
+    return  hour < 12 ? 'ÖÖ' : 'ÖS'
+}
 </script>
 
 <template>
@@ -77,7 +86,7 @@ onMounted(async () => {
             <span>b</span>
             <h2>Tweet</h2>
         </div>
-        <div class="main-tweet px-4">
+        <div class="main-tweet px-4 flex-col">
             <div class="tweet">
                 <div class="tweet-owner-info mb-2">
                     <ProfilePhoto :size="40" :source="mainTweet.user.avatar" />
@@ -107,8 +116,10 @@ onMounted(async () => {
                 </div>
                 <div class="footer">
                     <div class="tweet-infos">
-                        <span>ÖÖ 13:50</span>
-                        <span>24 haz 2023</span>
+                        <span>
+                            {{ getDayPart(mainTweet.created_at) }} {{format(new Date(mainTweet.created_at), 'kk:mm')}}
+                        </span>
+                        <span>{{format(new Date(mainTweet.created_at), 'dd MMM yyyy', {locale: tr})}}</span>
                         <span> <span class="display-count">12.4B</span> görüntülenme</span>
                     </div>
                     <div class="tweet-stats">
@@ -160,6 +171,7 @@ onMounted(async () => {
                    :tweet="tweet.tweet"
                    :media="tweet.media"
                    :user="tweet.user"
+                   :created_at="tweet.created_at"
                    :key="index"
             >
                 <template v-slot:tweet>{{tweet.tweet}}</template>

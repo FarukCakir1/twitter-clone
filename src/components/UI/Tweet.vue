@@ -19,6 +19,8 @@ import {detectOutsideClick} from "@/helpers/detectOutsideClick";
 import type {ITweet} from "@/stores/interfaces/ITweet";
 import {useRoute} from "vue-router";
 import NestedTweet from "@/components/UI/NestedTweet.vue";
+import { format } from "date-fns"
+import _ from 'lodash'
 
 const transactionArr = ref<Array<{icon:any, title:string}>>([
     {
@@ -53,12 +55,34 @@ const transactionArr = ref<Array<{icon:any, title:string}>>([
 const isDropOpen = ref<boolean>(false)
 const dropdown = ref<HTMLDivElement>();
 const route = useRoute()
+const today = ref<Date>(new Date())
 const isComment = ref<boolean>(route.name === 'tweet-detail')
 detectOutsideClick(dropdown, () => {
     isDropOpen.value = false
 })
-
 const props = defineProps<ITweet>()
+const formatTimeDiffrence = (start: Date) => {
+    if (getTimeDifference(start) < 60) {
+        if (getTimeDifference(start) <= 0) {
+            return 1 + 'd'
+        } else {
+            return getTimeDifference(start) + 'd'
+        }
+    } else if(getTimeDifference(start) >= 60) {
+        return Math.floor(getTimeDifference(start) / 60) + 's'
+    } else if (getTimeDifference(start) > 1440) {
+        return Math.floor(getTimeDifference(start) / 60 / 24) + 'g'
+    } else {
+        return ''
+    }
+}
+const getTimeDifference = (start:Date) => {
+    const date = new Date(start)
+    const localDate = new Date(date.getTime() - (date.getTimezoneOffset()));
+    const diffInMinutes = Math.floor((today.value - localDate) / (1000 * 60));
+    return Math.abs(Math.floor(diffInMinutes))
+}
+
 </script>
 
 <template>
@@ -70,7 +94,9 @@ const props = defineProps<ITweet>()
                 <div class="tweet-owner-info">
                     <span class="name">{{user.full_name}}</span>
                     <span class="nickname">{{user.user_name}}</span>
-                    <span class="time">2s</span>
+                    <span class="time">
+                        {{formatTimeDiffrence(created_at)}}
+                    </span>
                     <div class="relative ml-auto transactions-wrapper" ref="dropdown">
                         <div class="svg-wrapper" @click="isDropOpen=true">
                             <three-dot :size="18" color="#71767B"/>

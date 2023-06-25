@@ -30,9 +30,9 @@
       @apply px-3 max-w-fit text-tw-blue text-[14px] py-[1px] rounded-full border border-white border-opacity-40 mb-3 flex gap-2 relative;
       .target-drop {
         box-shadow: white 0px 2px 8px 0px;
-        @apply w-[300px] z-[5] h-auto bg-black absolute opacity-0 top-10 left-0 duration-100 flex flex-col gap-5 px-4 py-3 rounded-xl;
+        @apply w-[300px] z-[5] h-auto bg-black absolute opacity-0 top-10 left-0 duration-100 flex flex-col gap-5 px-4 py-3 rounded-xl pointer-events-none;
         &.open {
-          @apply opacity-100;
+          @apply opacity-100 pointer-events-auto;
         }
       }
     }

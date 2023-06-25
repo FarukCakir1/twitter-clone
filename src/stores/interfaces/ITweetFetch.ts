@@ -9,5 +9,6 @@ export interface ITweetFetch {
     fav: number,
     retweet: number,
     comment: number,
-    comment_tweets: ITweet
+    comment_tweets: ITweet,
+    created_at: any
 }

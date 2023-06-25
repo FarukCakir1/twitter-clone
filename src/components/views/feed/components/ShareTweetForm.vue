@@ -17,13 +17,20 @@ const textarea = ref<HTMLTextAreaElement>()
 const visible = ref<boolean>(false)
 const targetDrop = ref<HTMLDivElement>()
 const isDropOpen = ref<boolean>(false)
+const tweet = ref<string>("");
 const props = defineProps<{
     isInComment?: boolean
 }>()
+
+const emit = defineEmits(['shareTweet'])
 const adjustTextAreaheight = () => {
     textarea.value.style.height = 'auto'
     textarea.value.style.height = `${textarea.value?.scrollHeight}px`
 
+}
+const emitShare = () => {
+    emit('shareTweet', tweet.value)
+    tweet.value = ""
 }
 detectOutsideClick(targetDrop, () => {
     isDropOpen.value = false
@@ -79,7 +86,7 @@ detectOutsideClick(targetDrop, () => {
                     </div>
                 </div>
             </div>
-            <textarea @focus="visible = true" @input="adjustTextAreaheight" placeholder="Neler Oluyor ?" ref="textarea" rows="1"/>
+            <textarea @focus="visible = true" @input="adjustTextAreaheight" v-model="tweet" placeholder="Neler Oluyor ?" ref="textarea" rows="1"/>
             <div v-if="visible" class="responsiblity-selection">
                 <WorldIcon :is-active="false" :size="16" color="#1D9BF0" />
                 <span>Herkes Yanıtlayabilir</span>
@@ -93,7 +100,7 @@ detectOutsideClick(targetDrop, () => {
                     <CalendarIcon :size="20" color="#1D9BF0"/>
                     <LocationMarkIcon :size="20" color="#1D9BF0"/>
                 </div>
-                <ButtonEl :text="!isInComment ? 'yanıta' : 'Yanıtla'" type="blue" :height="36" />
+                <ButtonEl :text="!isInComment ? 'yanıta' : 'Yanıtla'" type="blue" :height="36" @click="emitShare"/>
             </div>
         </div>
     </div>
