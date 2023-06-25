@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {IconPropInterface} from "@/stores/interfaces/IconPropInterface";
+import {ref} from "vue";
 
 const props = defineProps<IconPropInterface>();
 </script>

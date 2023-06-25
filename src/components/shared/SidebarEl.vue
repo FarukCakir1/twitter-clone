@@ -27,7 +27,7 @@
                 </li>
             </ul>
         </div>
-        <div class="px-1 laptop:px-0">
+        <div class="px-2 laptop:px-3">
             <ButtonEl :icon="true" text="Tweetle" type="blue" height="50" />
         </div>
         <div class="profile-detail">

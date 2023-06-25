@@ -21,6 +21,7 @@ import type {ITweet} from "@/stores/interfaces/ITweet";
 import {RouteParamValue, useRoute} from "vue-router";
 import {format} from "date-fns";
 import {tr} from "date-fns/locale";
+import TurnBackIcon from "@/components/icons/TurnBackIcon.vue";
 
 
 const isDropOpen = ref<boolean>()
@@ -83,7 +84,9 @@ const getDayPart = (start) => {
 <template>
     <div v-if="!loading" class="tweet-detail-wrapper">
         <div class="turn-back-wrapper px-4">
-            <span>b</span>
+            <router-link to="/" class="p-2 hover:bg-white hover:bg-opacity-20 rounded-full cursor-pointer">
+                <TurnBackIcon :size="20"/>
+            </router-link>
             <h2>Tweet</h2>
         </div>
         <div class="main-tweet px-4 flex-col">

@@ -8,5 +8,8 @@
 
 * {
   font-family: Arial;
+  &::-webkit-scrollbar {
+    @apply hidden
+  }
 }
 
