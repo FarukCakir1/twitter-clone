@@ -1,24 +1,36 @@
 .sidebar-container {
-  @apply h-screen w-[250px] flex flex-col gap-[20px] py-[15px] shrink-0 overflow-auto;
+  @apply h-screen hidden w-[70px] laptop:w-[250px] mobile:flex flex-col gap-[20px] py-[15px] shrink-0 overflow-auto;
   .routes {
     @apply h-auto w-full;
     .routes-list {
       @apply flex flex-col gap-[5px];
       .single-route {
-        @apply flex w-max py-3 pr-5 pl-3 items-center gap-[20px] text-white text-[20px] rounded-full;
+        @apply flex ml-2 laptop:ml-0 w-max py-3 pr-3 pl-3 items-center gap-[20px] text-white text-[20px] rounded-full laptop:pr-5;
+        .route-title {
+          @apply hidden laptop:block;
+        }
         &:hover {
           @apply bg-white bg-opacity-10
         }
       }
     }
   }
+  .btn {
+    .icon-wrapper {
+      @apply block laptop:hidden;
+    }
+    .btn-text {
+      @apply hidden laptop:block
+    }
+    @apply w-[56px] h-[56px] laptop:w-full #{!important};
+  }
   .profile-detail {
-    @apply flex items-center w-full mt-auto px-6 py-3 w-full cursor-pointer rounded-full;
+    @apply flex items-center mt-auto px-3 py-3 w-full cursor-pointer rounded-full laptop:px-6;
     &:hover {
       @apply bg-white bg-opacity-10
     }
     .account-infos {
-      @apply text-white flex flex-col gap-[3px] ml-3 text-[15px];
+      @apply text-white flex-col gap-[3px] ml-3 text-[15px] hidden laptop:flex;
       .name {
         @apply text-white font-semibold
       }
@@ -27,7 +39,10 @@
       }
     }
     .svg-wrapper {
-      @apply ml-auto;
+      @apply ml-auto hidden laptop:block;
+    }
+    .img-wrapper {
+      @apply shrink-0
     }
   }
 }

@@ -8,6 +8,9 @@ import {TweetModel} from "@/stores/models/TweetModel";
 import {ITweetFetch} from "@/stores/interfaces/ITweetFetch";
 import {useTweetStore} from "@/stores/tweets";
 import _ from 'lodash'
+import ButtonEl from "@/components/UI/ButtonEl.vue";
+import MobileNav from "@/components/views/feed/components/MobileNav.vue";
+import MobileSidebar from "@/components/views/feed/components/MobileSidebar.vue";
 
 
 const tweetsWrapper = ref<HTMLDivElement>()
@@ -20,7 +23,7 @@ onMounted(async () => {
     tweets.value = store.getTweets
     loading.value = false
 })
-
+const mobileSidebar = ref<any>()
 const shareTweet = async (e) => {
     const newTweet = {
         id: Math.random() * 100000,
@@ -40,15 +43,20 @@ const scrollDiscoverBox = () => {
     const discoverSide = document.querySelector('.discover-side-wrapper')
     discoverSide.scrollTop = tweetsWrapper.value.scrollTop
 }
+
+const openSideMenu = () => {
+    mobileSidebar.value.isOpen = true
+}
 </script>
 
 <template>
     <div class="feed-wrapper" ref="tweetsWrapper" @scroll="scrollDiscoverBox">
-        <FeedHeader :options="['Sana Özel', 'Takip Ettiklerin']"/>
-        <share-tweet-form @shareTweet="shareTweet"/>
+        <FeedHeader :options="['Sana Özel', 'Takip Ettiklerin']" @openSide="openSideMenu"/>
+        <share-tweet-form @shareTweet="shareTweet" :is-in-comment="false"/>
         <div class="tweets-wrapper" >
             <Tweet
-                v-for="tweet in tweets"
+                v-for="(tweet, index) in tweets"
+                :key="index"
                 :user="tweet.user"
                 :id="tweet.id"
                 :media="tweet.media"
@@ -63,6 +71,11 @@ const scrollDiscoverBox = () => {
                 </template>
             </Tweet>
         </div>
+        <div class="fixed w-full bottom-0 block mobile:hidden">
+            <button-el :icon="true" text="" type="blue" :height="56" class="!w-[56px] ml-auto mr-3 mb-5"/>
+            <mobile-nav />
+        </div>
+        <MobileSidebar ref="mobileSidebar"/>
     </div>
 </template>
 

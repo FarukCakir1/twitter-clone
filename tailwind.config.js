@@ -5,6 +5,11 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      laptop: '1265px',
+      tablet: '988px',
+      mobile: '540px'
+    },
     extend: {
       colors: {
         'tw-blue': '#1DA1F2',

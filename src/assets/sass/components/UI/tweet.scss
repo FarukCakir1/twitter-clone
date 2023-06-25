@@ -59,6 +59,9 @@
   }
   .actions {
     @apply w-3/4 flex gap-11 mt-3;
+      .stats {
+        @apply hidden mobile:flex
+      }
     div {
       @apply flex gap-3;
     }

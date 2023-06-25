@@ -100,7 +100,7 @@ detectOutsideClick(targetDrop, () => {
                     <CalendarIcon :size="20" color="#1D9BF0"/>
                     <LocationMarkIcon :size="20" color="#1D9BF0"/>
                 </div>
-                <ButtonEl :text="!isInComment ? 'yanıta' : 'Yanıtla'" type="blue" :height="36" @click="emitShare"/>
+                <ButtonEl :text="!props.isInComment ? 'Tweetle' : 'Yanıtla'" type="blue" :height="36" @click="emitShare"/>
             </div>
         </div>
     </div>

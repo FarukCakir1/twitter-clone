@@ -12,7 +12,7 @@
 </script>
 <template>
     <div class="sidebar-container">
-        <div class="logo pl-3">
+        <div class="logo ml-2 laptop:ml-0 pl-3">
             <TwitterBird :is-active="true" :size="30" color="#D6D9DB"/>
         </div>
         <div class="routes">
@@ -27,7 +27,9 @@
                 </li>
             </ul>
         </div>
-        <ButtonEl text="Tweetle" type="blue" height="50" />
+        <div class="px-1 laptop:px-0">
+            <ButtonEl :icon="true" text="Tweetle" type="blue" height="50" />
+        </div>
         <div class="profile-detail">
             <ProfilePhoto :size="40" source="/src/assets/image/avatar.png" />
             <div class="account-infos">
