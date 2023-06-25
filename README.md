@@ -128,6 +128,9 @@ fakeData.js içinde yazılmış belli fonksiyonlar json-server sayesinde localho
 ```
 
 Detaylı bilgi için [fakeData.js](https://github.com/FarukCakir1/twitter-clone/blob/main/fakeData.js) dosyasını inceleyebilrsiniz.
+## Tweet Detay Hakkında
+
+Her tweet bir router-link ile sarmalanmıştır bu yüzden tıklandığında tweet detayına gider ve o tweete cevap olarak atılmış diğer tweetleri görebilrisiniz. Ayrıca kendinizde bu tweete cevap bir tweet atabilirsiniz. Burda dikkat edilmesi gereken nokta şudur ki; json-server bize yarattığı fake api'lar için UPDATE methodu sunmaz bu yüzden attığımız tweetler'i ilgili main tweetin nested tweetlerine kaydedemeyiz. Atılan tweetler store'a eklenir ve store yenilendiğinde yok olur. Bunu test etmek için tweet detay sayfasındayken sayfayı yenilemeden feed'e dönebilir ve ardından aynı tweetin detayına gidebilirsiniz. Store yenilenmediği (sayfa refresh olmadığı) sürece attığınız tweete nested bir şekilde görebilirsiniz.
 ## Kullanılan Yardımcı Paketler
 
 - date-fns
