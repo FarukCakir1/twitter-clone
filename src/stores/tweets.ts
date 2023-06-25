@@ -28,6 +28,15 @@ export const useTweetStore = defineStore("tweets", {
                 {...newTweet}
             )
             this.$state.tweets = [res.data, ...this.$state.tweets]
+        },
+        addNestedTweet(selectedTweet:any, newTweet:any) {
+            this.$state.tweets = this.$state.tweets.map((tweet:any) => {
+                if (tweet.id == selectedTweet.id) {
+                    tweet.comments = [...tweet.comments, newTweet]
+                    console.log(tweet)
+                }
+                return tweet
+            })
         }
     },
 });

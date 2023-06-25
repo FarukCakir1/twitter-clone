@@ -60,24 +60,47 @@ const transactionArr = ref<Array<{icon:any, title:string}>>([
 const store = useTweetStore()
 const loading = ref<boolean>(true)
 const mainTweet = ref<ITweet>()
+const commentTweets = ref<Array<ITweet>|null|undefined>()
 onMounted(async () => {
-    if (store.getTweets === null) {
+    if (store.getTweets.length === 0) {
         loading.value = true
         await store.fetchTweets()
-        mainTweet.value = store.getTweets.find((item:ITweet) => item.id == tweetId.value)
+        mainTweet.value = store.getTweets.find((item:any) => item.id == tweetId.value)
+        commentTweets.value = mainTweet.value?.comments
         loading.value = false
     } else {
         loading.value = false
         // Burda gereksiz request atmamak için spesifik tweeti store'da tuttuğumuz tweetler içinden filtreledim. Backend senaryosuna bağlı olarak /tweets/:id gibi bir endpointe istek atılıpta çekilebilir
         mainTweet.value = store.getTweets.find((item:ITweet) => item.id == tweetId.value)
+        commentTweets.value = mainTweet.value?.comments?.reverse()
     }
-    console.log(mainTweet.value)
+    console.log(commentTweets.value)
 })
 
 const getDayPart = (start) => {
     const date = new Date(start)
     const hour = parseInt(format(date, 'kk'))
     return  hour < 12 ? 'ÖÖ' : 'ÖS'
+}
+
+const shareCommentedTweet = (e) => {
+    // burda nested tweet ekleme işlemi yapılıyor fakat fake apimizin update gibi bir fonksiyonu olmadığı için api'a istek gönderilemiyor
+    // haliyle atılan yorum yalnızca store'a kaydediliyor ve store yenilenince kayboluyor. Store kaydedildiğini test etmek için
+    // tweet detay sayfasından ana sayfaya dönüp tekrar aynı tweetin detayına gidebilirsiniz.
+    const newTweet:ITweet = {
+        id: Math.random() * 100000,
+        user: {full_name: 'startupcentrum', user_name: '@startupcentrum', avatar: '/src/assets/image/avatar.png'},
+        tweet: e,
+        media: null,
+        fav: 0,
+        retweet: 0,
+        comment: 0,
+        comments: null,
+        created_at: new Date()
+    }
+    commentTweets.value = [newTweet, ...commentTweets.value]
+    console.log(commentTweets.value)
+    store.addNestedTweet(mainTweet.value, newTweet)
 }
 </script>
 
@@ -160,12 +183,12 @@ const getDayPart = (start) => {
                             <SendIcon :size="23" color="#71767B"/>
                         </div>
                     </div>
-                    <ShareTweetForm :is-in-comment="true"/>
+                    <ShareTweetForm :is-in-comment="true" @share-tweet="shareCommentedTweet"/>
                 </div>
             </div>
         </div>
-        <div v-if="mainTweet.comments" class="comments w-full">
-            <Tweet v-for="(tweet, index) in mainTweet.comments"
+        <div v-if="commentTweets" class="comments w-full">
+            <Tweet v-for="(tweet, index) in commentTweets"
                    :id="tweet.id"
                    :comments="tweet.comment_tweets"
                    :retweet="tweet.retweet"

@@ -1,5 +1,5 @@
 .tweet-detail-wrapper {
-  @apply w-full overflow-auto flex flex-col py-3 border border-white border-opacity-20;
+  @apply w-full h-screen overflow-auto flex flex-col py-3 border border-white border-opacity-20;
   .turn-back-wrapper {
     @apply flex gap-8 text-white items-center py-3;
     h2 {

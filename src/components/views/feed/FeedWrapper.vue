@@ -18,10 +18,16 @@ const loading = ref<boolean>(true)
 const store = useTweetStore()
 const tweets = ref<Array<TweetModel>>([])
 onMounted(async () => {
-    loading.value = true
-    await store.fetchTweets()
-    tweets.value = store.getTweets
-    loading.value = false
+    if (store.getTweets.length === 0) {
+        loading.value = true
+        await store.fetchTweets()
+        tweets.value = store.getTweets
+        loading.value = false
+    } else {
+        loading.value = false
+        tweets.value = store.getTweets
+    }
+
 })
 const mobileSidebar = ref<any>()
 const shareTweet = async (e) => {

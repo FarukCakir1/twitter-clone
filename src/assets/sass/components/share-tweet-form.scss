@@ -6,15 +6,15 @@
       @apply mt-0;
     }
     .form-side {
-      @apply flex items-center pt-2 pb-3;
+      @apply flex flex-col items-start pt-2 pb-3;
       textarea {
         @apply py-3
       }
+      .responsiblity-selection {
+        @apply hidden
+      }
       .actions {
-        @apply border-0 py-0 my-0 justify-end items-center #{!important};
-        .action-buttons {
-          @apply hidden #{!important};
-        }
+        @apply border-0 py-0 my-0 justify-between items-center #{!important};
       }
     }
   }
