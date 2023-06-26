@@ -32,14 +32,14 @@ onMounted(async () => {
 const mobileSidebar = ref<any>()
 const shareTweet = async (e) => {
     const newTweet = {
-        id: Math.random() * 100000,
+        id: Math.floor(Math.random() * 100000),
         user: {full_name: 'startupcentrum', user_name: '@startupcentrum', avatar: '/src/assets/image/avatar.png'},
         tweet: e,
         media: null,
         fav: 0,
         retweet: 0,
         comment: 0,
-        comments: null,
+        comments: [],
         created_at: new Date()
     }
     tweets.value = [new TweetModel(newTweet), ...tweets.value]

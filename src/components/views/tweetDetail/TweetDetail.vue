@@ -74,7 +74,7 @@ onMounted(async () => {
         mainTweet.value = store.getTweets.find((item:ITweet) => item.id == tweetId.value)
         commentTweets.value = mainTweet.value?.comments?.reverse()
     }
-    console.log(commentTweets.value)
+    console.log(mainTweet.value)
 })
 
 const getDayPart = (start) => {
@@ -88,14 +88,14 @@ const shareCommentedTweet = (e) => {
     // haliyle atılan yorum yalnızca store'a kaydediliyor ve store yenilenince kayboluyor. Store kaydedildiğini test etmek için
     // tweet detay sayfasından ana sayfaya dönüp tekrar aynı tweetin detayına gidebilirsiniz.
     const newTweet:ITweet = {
-        id: Math.random() * 100000,
+        id: Math.floor(Math.random() * 100000),
         user: {full_name: 'startupcentrum', user_name: '@startupcentrum', avatar: '/src/assets/image/avatar.png'},
         tweet: e,
         media: null,
         fav: 0,
         retweet: 0,
         comment: 0,
-        comments: null,
+        comments: [],
         created_at: new Date()
     }
     commentTweets.value = [newTweet, ...commentTweets.value]
